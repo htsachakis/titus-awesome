@@ -91,6 +91,10 @@ local LayoutBox = function(s)
   return layoutBox
 end
 
+-- Keyboard Layout
+local keyboard_layout = require("keyboard_layout")
+local kbdcfg = require("configuration.keyboard_layout")
+
 local TopPanel = function(s)
   
     local panel =
@@ -132,6 +136,8 @@ local TopPanel = function(s)
         wibox.container.margin(systray, dpi(3), dpi(3), dpi(6), dpi(3)),
         -- Layout box
         LayoutBox(s),
+        -- Keyboard Layout
+        kbdcfg.widget,
         -- Clock
         clock_widget,
       }

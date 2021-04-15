@@ -7,7 +7,6 @@ local beautiful = require('beautiful')
 -- Theme
 beautiful.init(require('theme'))
 
-
 -- Layout
 require('layout')
 

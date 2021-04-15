@@ -6,9 +6,18 @@ local hotkeys_popup = require('awful.hotkeys_popup').widget
 local modkey = require('configuration.keys.mod').modKey
 local altkey = require('configuration.keys.mod').altKey
 local apps = require('configuration.apps')
+
+local keyboard_layout = require("keyboard_layout")
+local kbdcfg = require("configuration.keyboard_layout")
+
 -- Key bindings
 local globalKeys =
   awful.util.table.join(
+  -- Keyboard Layout
+  -- Shift-Alt to change keyboard layout
+  awful.key({"Shift"}, "Alt_L", function () kbdcfg.switch_next() end),
+  -- Alt-Shift to change keyboard layout
+  awful.key({"Mod1"}, "Shift_L", function () kbdcfg.switch_next() end),
   -- Hotkeys
   awful.key({modkey}, 'F1', hotkeys_popup.show_help, {description = 'Show help', group = 'awesome'}),
   -- Tag browsing
