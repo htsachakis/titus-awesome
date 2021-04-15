@@ -17,7 +17,7 @@ return {
     delayed_screenshot = 'flameshot screen -p ~/Pictures -d 5000',
     browser = 'google-chrome',
     editor = 'gedit', -- gui text editor
-    code_editor = 'code',
+    code = 'code',
     social = 'discord',
     game = rofi_command,
     files = 'nautilus',
