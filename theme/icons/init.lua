@@ -9,6 +9,8 @@ return {
   music = dir .. '/music.svg',
   game = dir .. '/google-controller.svg',
   lab = dir .. '/flask.svg',
+  terminal = dir .. '/terminal-white.svg',
+  terminal_bold = dir .. '/terminal-bold-white.svg',
   --others
   menu = dir .. '/menu.svg',
   close = dir .. '/close.svg',

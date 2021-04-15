@@ -11,6 +11,12 @@ local tags = {
     screen = 1
   },
   {
+    icon = icons.terminal,
+    type = 'terminal',
+    defaultApp = apps.default.terminal,
+    screen = 1
+  },
+  {
     icon = icons.code,
     type = 'code',
     defaultApp = apps.default.code_editor,
@@ -23,15 +29,15 @@ local tags = {
     screen = 1
   },
   {
-    icon = icons.game,
-    type = 'game',
-    defaultApp = apps.default.game,
-    screen = 1
-  },
-  {
     icon = icons.folder,
     type = 'files',
     defaultApp = apps.default.files,
+    screen = 1
+  },
+  {
+    icon = icons.game,
+    type = 'game',
+    defaultApp = apps.default.game,
     screen = 1
   },
   {
