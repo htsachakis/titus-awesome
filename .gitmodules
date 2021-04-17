@@ -1,3 +1,6 @@
 [submodule "keyboard_layout"]
 	path = keyboard_layout
 	url = https://github.com/echuraev/keyboard_layout
+[submodule "lain"]
+	path = lain
+	url = https://github.com/lcpz/lain.git
