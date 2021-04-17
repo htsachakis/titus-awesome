@@ -94,6 +94,150 @@ end
 -- Keyboard Layout
 local keyboard_layout = require("keyboard_layout")
 local kbdcfg = require("configuration.keyboard_layout")
+-- Widgets
+local lain  = require("lain")
+local markup = lain.util.markup
+local wfont,wcolor = "Roboto medium 10", "#ffffff"
+
+-- CPU
+local cpuicon = wibox.widget{
+  wibox.widget{
+    widget = wibox.widget.imagebox,
+    image  = icons.cpu,
+    resize = true,
+    forced_height = 20,
+    forced_width = 20
+  },
+  -- top = dpi(5),
+  -- bottom = dpi(5),
+  -- left = dpi(5),
+  -- right = dpi(5),
+  margins = dpi(7),
+  widget = wibox.container.margin
+}
+local cpu = lain.widget.cpu({
+    settings = function()
+        widget:set_markup(markup.fontfg(wfont, wcolor, cpu_now.usage .. "% "))
+    end
+})
+
+-- Coretemp
+-- local tempicon = wibox.widget.imagebox(theme.widget_temp)
+local tempicon = wibox.widget{
+  wibox.widget{
+    widget = wibox.widget.imagebox,
+    image  = icons.thermometer,
+    resize = true,
+    forced_height = 20,
+    forced_width = 20
+  },
+  margins = dpi(7),
+  widget = wibox.container.margin
+}
+local temp = lain.widget.temp({
+    settings = function()
+        widget:set_markup(markup.fontfg("Roboto medium 10", "#ffffff", coretemp_now .. "°C "))
+    end
+})
+
+-- MEM
+-- local memicon = wibox.widget.imagebox(theme.widget_mem)
+local memicon = wibox.widget{
+  wibox.widget{
+    widget = wibox.widget.imagebox,
+    image  = icons.ram,
+    resize = true,
+    forced_height = 20,
+    forced_width = 20
+  },
+  margins = dpi(7),
+  widget = wibox.container.margin
+}
+local memory = lain.widget.mem({
+    settings = function()
+        widget:set_markup(markup.fontfg(wfont,wcolor, mem_now.used .. "M "))
+    end
+})
+-- Fan 
+-- local fsicon = wibox.widget.imagebox(theme.widget_fs)
+local fsicon = wibox.widget{
+  wibox.widget{
+    widget = wibox.widget.imagebox,
+    image  = icons.cpufan,
+    resize = true,
+    forced_height = 20,
+    forced_width = 20
+  },
+  margins = dpi(7),
+  widget = wibox.container.margin
+}
+local fs = lain.widget.fs({
+    notification_preset = { font = wfont, fg = "#aaaaaa" },
+    settings  = function()
+        widget:set_markup(markup.fontfg(wfont, wcolor, string.format("%.1f", fs_now["/"].used) .. "% "))
+    end
+})
+
+-- NEt
+local netdownicon = wibox.widget{
+  wibox.widget{
+    widget = wibox.widget.imagebox,
+    image  = icons.downarrow,
+    resize = true,
+    forced_height = 20,
+    forced_width = 20
+  },
+  margins = dpi(7),
+  widget = wibox.container.margin
+}
+local netdowninfo = wibox.widget.textbox()
+local netupicon = wibox.widget{
+  wibox.widget{
+    widget = wibox.widget.imagebox,
+    image  = icons.uparrow,
+    resize = true,
+    forced_height = 20,
+    forced_width = 20
+  },
+  margins = dpi(7),
+  widget = wibox.container.margin
+}
+local netupinfo = lain.widget.net({
+    settings = function()
+        --[[ uncomment if using the weather widget
+        if iface ~= "network off" and
+           string.match(theme.weather.widget.text, "N/A")
+        then
+            theme.weather.update()
+        end
+        --]]
+
+        widget:set_markup(markup.fontfg(wfont, wcolor, net_now.sent .. " "))
+        netdowninfo:set_markup(markup.fontfg(wfont, wcolor, net_now.received .. " "))
+    end
+})
+
+-- ALSA volume
+-- local volicon = wibox.widget{
+--   wibox.widget{
+--     widget = wibox.widget.imagebox,
+--     image  = icons.volume,
+--     resize = true,
+--     forced_height = 20,
+--     forced_width = 20
+--   },
+--   margins = dpi(7),
+--   widget = wibox.container.margin
+-- }
+-- local volume = lain.widget.alsa({
+--     settings = function()
+--         if volume_now.status == "off" then
+--             volume_now.level = volume_now.level .. "M"
+--         end
+
+--         widget:set_markup(markup.fontfg(wfont, wcolor, volume_now.level .. "% "))
+--     end
+-- })
 
 local TopPanel = function(s)
   
@@ -133,6 +277,20 @@ local TopPanel = function(s)
       nil,
       {
         layout = wibox.layout.fixed.horizontal,
+        netdownicon,
+        netdowninfo,
+        netupicon,
+        netupinfo.widget,
+        -- tempicon,
+        -- temp,
+        -- fsicon,
+        -- fs,
+        cpuicon,
+        cpu.widget,
+        memicon,
+        memory,
+        -- volicon,
+        -- volume,
         wibox.container.margin(systray, dpi(3), dpi(3), dpi(6), dpi(3)),
         -- Layout box
         LayoutBox(s),

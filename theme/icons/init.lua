@@ -26,5 +26,11 @@ return {
   memory = dir .. '/memory.svg',
   harddisk = dir .. '/harddisk.svg',
   thermometer = dir .. '/thermometer.svg',
+  cpu = dir .. '/cpu-white.svg',
+  ram = dir .. '/ram-white.svg',
+  fan = dir .. '/fan-white.svg',
+  cpufan = dir .. '/cpu-fan.svg',
+  uparrow = dir .. '/up-arrow-white.svg',
+  downarrow = dir .. '/down-arrow-white.svg',
   plus = dir .. '/plus.svg'
 }
