@@ -15,9 +15,9 @@ local globalKeys =
   awful.util.table.join(
   -- Keyboard Layout
   -- Shift-Alt to change keyboard layout
-  awful.key({"Shift"}, "Alt_L", function () kbdcfg.switch_next() end),
+  awful.key({"Shift"}, "Alt_L", function () kbdcfg.switch_next() end,{description = 'Select Next Language', group = 'client'}),
   -- Alt-Shift to change keyboard layout
-  awful.key({"Mod1"}, "Shift_L", function () kbdcfg.switch_next() end),
+  awful.key({"Mod1"}, "Shift_L", function () kbdcfg.switch_next() end,{description = 'Select Next Language', group = 'client'}),
   -- Hotkeys
   awful.key({modkey}, 'F1', hotkeys_popup.show_help, {description = 'Show help', group = 'awesome'}),
   -- Tag browsing
@@ -402,15 +402,17 @@ local globalKeys =
     'space',
     function()
       awful.util.spawn_with_shell('vm-attach attach')
-    end
+    end,
+    {description = 'vfio', group = 'z'}
   ),
   -- Lutris hotkey
   awful.key(
-    {modkey},
+    {modkey,'Shift'},
     'g',
     function()
       awful.util.spawn_with_shell('lutris')
-    end
+    end,
+    {description = 'lutris', group = 'z'}
   ),
   -- System Monitor hotkey
   awful.key(
@@ -418,15 +420,17 @@ local globalKeys =
     'm',
     function()
       awful.util.spawn_with_shell('mate-system-monitor')
-    end
+    end,
+    {description = 'Spawn System Monitor', group = 'z'}
   ),
   -- Kill VLC
   awful.key(
-    {modkey},
+    {modkey,'Shift'},
     'v',
     function()
       awful.util.spawn_with_shell('killall -9 vlc')
-    end
+    end,
+    {description = 'Kill All VLC', group = 'z'}
   ),
   -- File Manager
   awful.key(
