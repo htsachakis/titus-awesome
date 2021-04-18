@@ -18,7 +18,7 @@ return {
     browser = 'google-chrome',
     editor = 'gedit', -- gui text editor
     code = 'code',
-    git = 'gitkraken',
+    git = 'flatpak run com.axosoft.GitKraken',
     social = 'discord',
     game = rofi_command,
     files = 'nautilus',
