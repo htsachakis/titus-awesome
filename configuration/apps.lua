@@ -18,6 +18,7 @@ return {
     browser = 'google-chrome',
     editor = 'gedit', -- gui text editor
     code = 'code',
+    git = 'gitkraken',
     social = 'discord',
     game = rofi_command,
     files = 'nautilus',

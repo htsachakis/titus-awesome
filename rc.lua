@@ -68,3 +68,6 @@ _G.client.connect_signal(
     c.border_color = beautiful.border_normal
   end
 )
+-- Notification test
+-- local naughty = require('naughty')
+-- naughty.notify({ title = "Achtung!", message = "You're idling", timeout = 2 })

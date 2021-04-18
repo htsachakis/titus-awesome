@@ -157,6 +157,22 @@ local globalKeys =
     end,
     {description = 'Open a browser', group = 'launcher'}
   ),
+  awful.key(
+    {modkey},
+    'v',
+    function()
+      awful.util.spawn(apps.default.code)
+    end,
+    {description = 'Open a VScode', group = 'launcher'}
+  ),
+  awful.key(
+    {modkey},
+    'g',
+    function()
+      awful.util.spawn(apps.default.git)
+    end,
+    {description = 'Open a GitKraken', group = 'launcher'}
+  ),
   -- Standard program
   awful.key(
     {modkey},
