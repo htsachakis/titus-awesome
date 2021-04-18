@@ -23,8 +23,8 @@ local globalKeys =
   -- Tag browsing
   awful.key({modkey}, 'w', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
   awful.key({modkey}, 's', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
-  awful.key({altkey, 'Control'}, 'Up', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
-  awful.key({altkey, 'Control'}, 'Down', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
+  -- awful.key({altkey, 'Control'}, 'Up', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
+  -- awful.key({altkey, 'Control'}, 'Down', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
   awful.key({modkey}, 'Escape', awful.tag.history.restore, {description = 'go back', group = 'tag'}),
   -- Default client focus
   awful.key(
@@ -169,7 +169,7 @@ local globalKeys =
   awful.key({modkey, 'Control'}, 'r', _G.awesome.restart, {description = 'reload awesome', group = 'awesome'}),
   awful.key({modkey, 'Control'}, 'q', _G.awesome.quit, {description = 'quit awesome', group = 'awesome'}),
   awful.key(
-    {altkey, 'Shift'},
+    {altkey, 'Control'},
     'Right',
     function()
       awful.tag.incmwfact(0.05)
@@ -177,7 +177,7 @@ local globalKeys =
     {description = 'Increase master width factor', group = 'layout'}
   ),
   awful.key(
-    {altkey, 'Shift'},
+    {altkey, 'Control'},
     'Left',
     function()
       awful.tag.incmwfact(-0.05)
@@ -185,16 +185,16 @@ local globalKeys =
     {description = 'Decrease master width factor', group = 'layout'}
   ),
   awful.key(
-    {altkey, 'Shift'},
-    'Down',
+    {altkey, 'Control'},
+    'Up',
     function()
       awful.client.incwfact(0.05)
     end,
     {description = 'Decrease master height factor', group = 'layout'}
   ),
   awful.key(
-    {altkey, 'Shift'},
-    'Up',
+    {altkey, 'Control'},
+    'Down',
     function()
       awful.client.incwfact(-0.05)
     end,
